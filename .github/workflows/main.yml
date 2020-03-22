@@ -27,4 +27,8 @@ jobs:
 
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--help" # gets appended to pandoc command
+          args: "-t revealjs -s -c styles.css -o Output/about.html about.md -V revealjs-url=https://revealjs.com --variable theme="white" --slide-level 2"
+
+      - name: copy assets
+        run: |
+          dir
