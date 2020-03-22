@@ -23,6 +23,7 @@ jobs:
       - name: create output folder
         run: |
           mkdir Output
+          dir
 
       - uses: docker://pandoc/core:2.9
         with:
