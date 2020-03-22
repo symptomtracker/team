@@ -25,9 +25,17 @@ jobs:
           mkdir Output
           dir
 
+      - run: echo "foo" > input.txt  # create an example file
       - uses: docker://pandoc/core:2.9
         with:
-          args: "-t revealjs -s -c styles.css -o Output/about.html about.md -V revealjs-url=https://revealjs.com --variable theme="white" --slide-level 2" # gets appended to pandoc command
+          args: |>  # allows you to break string into multiple lines
+            -t revealjs
+            -s
+            -c styles.css
+            -o Output/about.html about.md
+            -V revealjs-url=https://revealjs.com
+            --variable theme="white"
+            --slide-level 2
 
       - name: copy assets
         run: |
